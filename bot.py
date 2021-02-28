@@ -40,7 +40,7 @@ def poster(update:Update, context: CallbackContext):
         bot.send_video(chat_id=CHANNEL,video=send_content,caption=caption)
     elif is_photo:
         bot.send_photo(chat_id=CHANNEL,photo=send_content,caption=caption)
-    text.edit_text(f"process finished in {round(time() - begin,2)}s")
+    text.edit_text(f"Process finished in {round(time() - begin,2)}s")
 
 if __name__ == "__main__":
     update = Updater(TOKEN,use_context=True)
