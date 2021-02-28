@@ -7,7 +7,7 @@ TOKEN = ""
 CHANNEL = 
 ALLOWED = []
 
-def kanger(update:Update, context: CallbackContext):
+def poster(update:Update, context: CallbackContext):
     begin = time()
     message = update.message
     bot = context.bot
@@ -45,7 +45,7 @@ def kanger(update:Update, context: CallbackContext):
 if __name__ == "__main__":
     update = Updater(TOKEN,use_context=True)
     dp = update.dispatcher
-    dp.add_handler(CommandHandler("kang",kanger))
+    dp.add_handler(CommandHandler("post",poster))
     print(f"{update.bot.name} has started!")
     update.start_polling()
     update.idle()
