@@ -14,10 +14,10 @@ def kanger(update:Update, context: CallbackContext):
     send_content = ""
     is_photo,is_video,is_gif = False, False, False
     if message.from_user.id not in ALLOWED:
-        message.reply_text("sorry bro you're not allowed..")
+        message.reply_text("You're not allowed.")
         return
     if not message.reply_to_message:
-        message.reply_text("bruh, reply to something you want me to kang.")
+        message.reply_text("Error: No reply.")
         return
     rep_msg = message.reply_to_message
     if rep_msg.photo:
@@ -30,10 +30,10 @@ def kanger(update:Update, context: CallbackContext):
         send_content = rep_msg.animation.file_id
         is_gif = True
     else:
-        message.reply_text("no media provided in the message...")
+        message.reply_text("No media provided in the message.")
         return
-    caption = update.message.text.replace("/kang","")
-    text = message.reply_text("downloading your media...")
+    caption = update.message.text.replace("/post","")
+    text = message.reply_text("Downloading your media...")
     if is_gif:
         bot.send_animation(chat_id=CHANNEL,animation=send_content,caption=caption)
     elif is_video:
